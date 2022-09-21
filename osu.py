@@ -34,6 +34,8 @@ DEF_HITCIRCLE           = pygame.transform.scale(DEF_HITCIRCLE, (CIRCLE_SIZE, CI
 DEF_HITCIRCLE_OVERLAY   = pygame.transform.scale(DEF_HITCIRCLE_OVERLAY, (CIRCLE_SIZE, CIRCLE_SIZE))
 DEF_HITCIRCLE_APPROACH  = pygame.transform.scale(DEF_HITCIRCLE_APPROACH, (CIRCLE_SIZE, CIRCLE_SIZE))
 
+HITSOUND = pygame.mixer.Sound("assets/hit.wav")
+
 class Cursor():
 
     def __init__(self,image=DEF_CURSOR,image_trail=DEF_CURSORTRAIL):
@@ -65,6 +67,7 @@ class Hitcircle():
         if self.rect.collidepoint((cursor.x,cursor.y)):
             if click == True:
                 print("clicked")
+                pygame.mixer.Sound.play(HITSOUND)
 
 
 def draw():
