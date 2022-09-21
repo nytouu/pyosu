@@ -3,18 +3,22 @@ import pygame
 from pygame.locals import *
 import os
 
-WIDTH, HEIGHT = 1280, 720
-
-window = pygame.display.set_mode((WIDTH,HEIGHT), 0, 32)
-pygame.display.set_caption("click the circles")
-
-pygame.mouse.set_visible(False)
 
 FRAMERATE = 144
 BACKGROUND = (20,20,20)
 
 CURSOR_SIZE = 64
 CIRCLE_SIZE = 130
+
+WIDTH, HEIGHT = 1280, 720
+
+pygame.init()
+
+window = pygame.display.set_mode((WIDTH,HEIGHT), 0, 32)
+pygame.display.set_caption("click the circles")
+
+pygame.mouse.set_visible(False)
+
 
 # set defaults
 DEF_CURSOR              = pygame.image.load(os.path.join('assets','cursor.png')).convert_alpha()
@@ -70,7 +74,6 @@ def draw():
     cursor.draw()
 
     pygame.display.update()
-
 
 cursor = Cursor()
 hitcircle = Hitcircle(200,200)
